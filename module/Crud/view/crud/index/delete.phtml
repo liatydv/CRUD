@@ -1,0 +1,19 @@
+<?php 
+$title = "Desea eliminar?";
+$this->headTitle($title);
+?>
+<center>
+<br>
+<br>
+
+<?php
+$url = $this->url('crud', ['action' => 'delete', 'id' => $id]);
+?>
+<form action="<?php echo $url ?>" method="POST">
+<h2> Esta seguro de eliminar este Usuario? </h2>
+<div class="form-goup">
+<input  type="hidden" name="id" value="<?php $post->getId;?>">
+<input  type="submit" name="delete" value="Yes" class="btn btn-danger">
+<input  type="submit" name="delete" value="No" class="btn btn-default">
+</div>
+</form></center>

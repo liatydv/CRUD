@@ -1,0 +1,40 @@
+<div class="jumbotron">
+    
+<div>
+<?php if(count($posts)>0):?>
+<center><h1><span class="zf-green">Usuarios</span></h1></center>
+</div>
+<div class="row">
+<table class="table">
+  <thead>
+    <tr>
+    <th scope="col">ID</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Correo</th>
+      <th scope="col">Contraseña</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+  
+  <?php foreach ($posts as $datos):?>
+    <tr>
+      <th scope="row"><?= $this->escapeHtml($datos->getId()) ?></th>
+      <td><?= $this->escapeHtml($datos->getNombre()) ?></td>
+        <td><?= $this->escapeHtml($datos->getCorreo()) ?></td>
+        <td><?= $this->escapeHtml($datos->getContrasena()) ?></td>
+    
+    <td><a href="<?php echo $this->url('crud', ['action' => "edit", 'id' => $datos->getId()]);?>" class="label label-default"> Modificar </a></td>
+    <td><a href="<?php echo $this->url('crud', ['action' => "delete", 'id' => $datos->getId()]);?>" class="label label-danger"> Eliminar </a></td>
+    </tr>
+    <?php endforeach; ?>
+<?php else:?>
+<tr>
+<center><td>La tabla no contiene datos </td></center>
+</tr>
+<?php endif;?>
+  </tbody>
+</table>
+<center> <a href="<?php echo $this->basePath('crud/add');?>" class="label label-primary"> Nuevo Usuario </a></center>
+</div>
+</div>
